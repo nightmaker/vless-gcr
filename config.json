@@ -3,7 +3,7 @@
     "loglevel": "warning"
   },
   "inbounds": [{
-    "port": 8080,
+    "port": 10001,
     "protocol": "vless",
     "settings": {
       "clients": [{
