@@ -1,5 +1,13 @@
-FROM ghcr.io/xtls/xray-core:latest
+FROM ghcr.io/teddysun/v2ray
 
-COPY config.json /etc/xray/config.json
+# Set working directory
+WORKDIR /etc/v2ray
 
-CMD ["xray", "run", "-c", "/etc/xray/config.json"]
+# Copy the config
+COPY config.json /etc/v2ray/config.json
+
+# Expose Cloud Run’s required port
+EXPOSE 8080
+
+# Start V2Ray with the config
+CMD ["/usr/bin/v2ray", "-config", "/etc/v2ray/config.json"]
